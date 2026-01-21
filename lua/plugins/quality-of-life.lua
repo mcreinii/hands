@@ -34,19 +34,28 @@ return {
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		},
-		keys = {
-			{
-				"<leader>?",
-				function()
-					require("which-key").show({ global = false })
-				end,
-				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
+		opts = {},
+		keys = {},
+		config = function(_, opts)
+			local which_key = require("which-key")
+			which_key.setup(opts)
+
+			which_key.add({
+				-- Whichkey Groups
+				{ "<leader>f", group = "Find", icon = "" },
+				{ "<leader>l", group = "Language", icon = "󰢱" },
+				{ "<leader>g", group = "Git", icon = "" },
+				{ "<leader>P", group = "Packages", icon = "" },
+				{ "<leader>d", group = "Diagnostics", icon = "" },
+				{ "<leader>Pl", group = "Lazy", icon = "󰒲" },
+				{ "<leader>Pm", group = "Mason", icon = "󰌛" },
+				{ "<leader>m", group = "Markdown", icon = "󰽛" },
+				-- Keymaps
+				{ "<leader>Q", icon = "" },
+				{ "<leader>q", icon = "" },
+				{ "<leader>h", icon = "" },
+				{ "<leader>w", icon = "" },
+			})
+		end,
 	},
 }

@@ -13,7 +13,11 @@ M.defaults = {
 		{ "<leader>h", ":noh<CR>", desc = "Clear highlights", silent = true, noremap = true },
 
 		-- Lazy
-		{ "<leader>Pl", ":Lazy<CR>", desc = "Open Lazy", silent = true, noremap = true },
+		{ "<leader>Pll", ":Lazy<CR>", desc = "Lazy", silent = true, noremap = true },
+		{ "<leader>Pls", ":Lazy sync<CR>", desc = "Lazy (Sync)", silent = true, noremap = true },
+		{ "<leader>Pli", ":Lazy install<CR>", desc = "Lazy (Install)", silent = true, noremap = true },
+		{ "<leader>Plu", ":Lazy update<CR>", desc = "Lazy (Update)", silent = true, noremap = true },
+		{ "<leader>Plc", ":Lazy clean<CR>", desc = "Lazy (Clean)", silent = true, noremap = true },
 
 		-- Scrolling
 		{ "<C-d>", "<C-d>zz", desc = "Scroll down (Centered)" },
@@ -23,10 +27,7 @@ M.defaults = {
 	t = {},
 }
 
-function M.setup(keymaps)
-	keymaps = vim.tbl_extend("force", M.defaults, keymaps or {})
-
-	-- Loop each mode and it's values (mapping, actions and opts)
+function M.keymap(keymaps)
 	for mode, keymap in pairs(keymaps) do
 		for _, values in pairs(keymap) do
 			-- Take the mapping and action
@@ -47,6 +48,13 @@ function M.setup(keymaps)
 			vim.keymap.set(mode, map, action, opts)
 		end
 	end
+end
+
+function M.setup(keymaps)
+	keymaps = vim.tbl_extend("force", M.defaults, keymaps or {})
+
+	-- Loop each mode and it's values (mapping, actions and opts)
+	M.keymap(keymaps)
 end
 
 return M

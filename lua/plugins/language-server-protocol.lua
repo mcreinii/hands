@@ -12,7 +12,9 @@ return {
 			"mason-org/mason.nvim",
 			opts = {},
 			keys = {
-				{ "<leader>Pm", ":Mason<CR>", desc = "Open Mason", silent = true, noremap = true },
+				{ "<leader>Pmm", ":Mason<CR>", desc = "Mason", silent = true, noremap = true },
+				{ "<leader>Pmu", ":MasonUpdate<CR>", desc = "Mason (Update)", silent = true, noremap = true },
+				{ "<leader>Pml", ":MasonLog<CR>", desc = "Open (Log)", silent = true, noremap = true },
 			},
 		},
 		"neovim/nvim-lspconfig",
@@ -23,19 +25,9 @@ return {
 		-- Enable keybinds on LSP
 		vim.api.nvim_create_autocmd("LspAttach", {
 			callback = function()
-				local opts = { noremap = true, silent = true }
-
-				-- LSP Keymaps Grouped Under <leader>l using Inline Functions
-				-- Add descriptions for which-key or similar keybinding helper
-
 				-- Go to definition
 				vim.keymap.set("n", "<leader>ld", function()
 					vim.lsp.buf.definition()
-				end, { desc = "Go to definition", noremap = true, silent = true })
-
-				-- Source action
-				vim.keymap.set("n", "<leader>la", function()
-					vim.lsp.buf.code_action()
 				end, { desc = "Go to definition", noremap = true, silent = true })
 
 				-- Show hover documentation
@@ -59,7 +51,7 @@ return {
 				end, { desc = "Go to implementation", noremap = true, silent = true })
 
 				-- Go to type definition
-				vim.keymap.set("n", "<leader>lo", function()
+				vim.keymap.set("n", "<leader>lt", function()
 					vim.lsp.buf.type_definition()
 				end, { desc = "Go to type definition", noremap = true, silent = true })
 
@@ -69,7 +61,7 @@ return {
 				end, { desc = "Rename symbol", noremap = true, silent = true })
 
 				-- Show code actions
-				vim.keymap.set("n", "<leader>lca", function()
+				vim.keymap.set("n", "<leader>la", function()
 					vim.lsp.buf.code_action()
 				end, { desc = "Show code actions", noremap = true, silent = true })
 
@@ -79,22 +71,22 @@ return {
 				end, { desc = "Format buffer", noremap = true, silent = true })
 
 				-- Show diagnostics in a floating window
-				vim.keymap.set("n", "<leader>le", function()
+				vim.keymap.set("n", "<leader>dd", function()
 					vim.diagnostic.open_float()
 				end, { desc = "Show diagnostics (Floating)", noremap = true, silent = true })
 
 				-- Go to previous diagnostic
-				vim.keymap.set("n", "<leader>l[", function()
+				vim.keymap.set("n", "<leader>d[", function()
 					vim.diagnostic.goto_prev()
 				end, { desc = "Go to previous diagnostic", noremap = true, silent = true })
 
 				-- Go to next diagnostic
-				vim.keymap.set("n", "<leader>l]", function()
+				vim.keymap.set("n", "<leader>d]", function()
 					vim.diagnostic.goto_next()
 				end, { desc = "Go to next diagnostic", noremap = true, silent = true })
 
 				-- Show diagnostics in location list
-				vim.keymap.set("n", "<leader>lq", function()
+				vim.keymap.set("n", "<leader>dl", function()
 					vim.diagnostic.setloclist()
 				end, { desc = "Show diagnostics (Location list)", noremap = true, silent = true })
 			end,

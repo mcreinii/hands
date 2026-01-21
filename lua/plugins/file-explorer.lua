@@ -26,7 +26,7 @@ return {
 		},
 	},
 	keys = {
-		{ "<leader>e", ":Neotree toggle<CR>", desc = "Open Neo-Tree", silent = true, noremap = true },
+		{ "<leader>e", ":Neotree toggle<CR>", desc = "Open file explorer", silent = true, noremap = true },
 	},
 	config = function(_, opts)
 		require("neo-tree").setup(opts)
