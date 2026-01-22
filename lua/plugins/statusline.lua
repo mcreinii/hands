@@ -23,7 +23,7 @@ local left_modules = {
 	{
 		-- Modes
 		function()
-			return vim.fn.mode()
+			return "Hands"
 		end,
 		color = function()
 			return mode_colors[vim.fn.mode()]
@@ -38,12 +38,14 @@ local left_modules = {
 		function()
 			local buf_name = vim.api.nvim_buf_get_name(0)
 
+			local path = vim.fn.expand("%:h:t") .. "/" .. vim.fn.expand("%:t")
+
 			-- Check if the buffer name matches both "neo-tree" and "filesystem"
-			if buf_name:match("neo%-tree") and buf_name:match("filesystem") then
+			if path == "/" or buf_name(os.getenv("$SHELL")) then
 				return ""
 			end
 
-			return vim.fn.expand("%:h:t") .. "/" .. vim.fn.expand("%:t")
+			return path
 		end,
 		path = 2,
 		shorting_target = 20,

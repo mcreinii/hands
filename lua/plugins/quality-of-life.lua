@@ -51,6 +51,7 @@ return {
 				},
 			})
 		end,
+		keys = {},
 	},
 
 	-- Whichkey
@@ -74,6 +75,8 @@ return {
 				{ "<leader>Pl", group = "Lazy", icon = "󰒲" },
 				{ "<leader>Pm", group = "Mason", icon = "󰌛" },
 				{ "<leader>m", group = "Markdown", icon = "󰽛" },
+				{ "<leader>t", group = "Terminal", icon = "" },
+
 				-- Keymaps
 				{ "<leader>Q", icon = "" },
 				{ "<leader>q", icon = "" },
