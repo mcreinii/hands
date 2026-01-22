@@ -24,7 +24,7 @@ M.defaults = {
 	pumheight = 10, -- Limit popup menu height
 	cmdheight = 0, -- Use minimal command line height (nvim 0.9+)
 	termguicolors = true, -- Enable true color support
-	winborder = "rounded", -- (rounded, single, solid, shadow or none)
+	winborder = "double", -- (rounded, double, single, solid, shadow or none)
 }
 
 function M.relative_num()

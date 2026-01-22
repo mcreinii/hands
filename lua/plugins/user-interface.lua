@@ -10,7 +10,7 @@ local valid_border_styles = {
 local function get_border_style()
 	local border = vim.o.winborder
 	if border == nil or border == "" or not valid_border_styles[border] then
-		return "rounded"
+		return "double"
 	end
 	return border
 end

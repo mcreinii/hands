@@ -95,7 +95,7 @@ require("core.options").setup({
 
 #### Tips
 
-- `winborder = <value>` affects noice.nvim, fallbacks to "rounded" if it's invalid or unset.
+- `winborder = <value>` affects noice.nvim, fallbacks to "double" if it's invalid or unset.
 
 ### Keymaps ⌨️
 
