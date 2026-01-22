@@ -10,7 +10,7 @@ M.defaults = {
 		{ "<leader>w", ":w<cr>", desc = "Write buffer", silent = true, noremap = true },
 
 		-- Inteface
-		{ "<leader>h", ":noh<CR>", desc = "Clear highlights", silent = true, noremap = true },
+		{ "<C-h>", ":noh<CR>", desc = "Clear highlights", silent = true, noremap = true },
 
 		-- Lazy
 		{ "<leader>Pll", ":Lazy<CR>", desc = "Lazy", silent = true, noremap = true },

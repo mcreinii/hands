@@ -5,24 +5,29 @@ local conditions = {
 }
 
 local mode_colors = {
-	n = { bg = "#98c379" }, -- Normal Mode (Green)
-	i = { bg = "#61afef" }, -- Insert Mode (Blue)
-	v = { bg = "#c678dd" }, -- Visual Mode (Purple)
-	V = { bg = "#c678dd" }, -- Visual Mode (Expanded)
-	R = { bg = "#d19a66" }, -- Replace Mode (Orange)
-	c = { bg = "#e06c75" }, -- Command Mode (Red)
-	t = { bg = "#56b6c2" }, -- Terminal Mode (Cyan)
+	n = { fg = "#121212", bg = "#98c379" }, -- Normal Mode (Green)
+	i = { fg = "#121212", bg = "#61afef" }, -- Insert Mode (Blue)
+	ic = { fg = "#121212", bg = "#61afef" }, -- Insert Mode with completion (Blue)
+	v = { fg = "#121212", bg = "#c678dd" }, -- Visual Mode (Purple)
+	V = { fg = "#121212", bg = "#c678dd" }, -- Visual Mode (Line)
+	["\22"] = { fg = "#121212", bg = "#c678dd" }, -- Visual Mode (Block)
+	R = { fg = "#121212", bg = "#d19a66" }, -- Replace Mode (Orange)
+	c = { fg = "#121212", bg = "#e06c75" }, -- Command Mode (Red)
+	t = { fg = "#121212", bg = "#56b6c2" }, -- Terminal Mode (Cyan)
+	no = { fg = "#121212", bg = "#d19a66" }, -- Operator-pending Mode (Orange)
+	niI = { fg = "#121212", bg = "#98c379" }, -- Normal Insert-pending Mode (Green)
+	niR = { fg = "#121212", bg = "#d19a66" }, -- Normal Replace-pending Mode (Orange)
 }
 
 local left_modules = {
 	{
 		-- Modes
 		function()
-			return " "
+			return vim.fn.mode()
 		end,
-		color = (function()
-			return { fg = "None", bg = mode_colors[vim.fn.mode()].bg }
-		end)(),
+		color = function()
+			return mode_colors[vim.fn.mode()]
+		end,
 	},
 	{
 		-- Filetype
