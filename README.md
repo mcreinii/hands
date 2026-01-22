@@ -93,6 +93,10 @@ require("core.options").setup({
 })
 ```
 
+#### Tips
+
+`winborder = <value>` affects noice.nvim, fallbacks to "rounded" if it's invalid or unset.
+
 ### Keymaps ⌨️
 
 Edit `lua/core/init.lua` and find:
