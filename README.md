@@ -125,3 +125,4 @@ require("core.keymaps").setup({
 * After the first launch, Neovim may install plugins automatically.
 * You can tweak your config in `~/.config/nvim` (Linux) or `$env:LOCALAPPDATA\nvim` (Windows).
 * To contribute, fork the repo and make changes after removing the `.git` folder.
+* lua_ls seems to be forked rn, use `:MasonInstall lua-language-server@3.16.4`

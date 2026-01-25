@@ -30,6 +30,21 @@ local left_modules = {
 		end,
 	},
 	{
+		-- Progress
+		function()
+			local current_line = vim.fn.line(".")
+			local total_lines = vim.fn.line("$")
+			local icons = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
+
+			local line_ratio = current_line / total_lines
+
+			local index = math.ceil(line_ratio * #icons)
+
+			return icons[index]
+		end,
+		padding = { left = 1, right = 0 },
+	},
+	{
 		-- Filetype
 		"filetype",
 	},
@@ -41,7 +56,7 @@ local left_modules = {
 			local path = vim.fn.expand("%:h:t") .. "/" .. vim.fn.expand("%:t")
 
 			-- Check if the buffer name matches both "neo-tree" and "filesystem"
-			if path == "/" or buf_name(os.getenv("$SHELL")) then
+			if buf_name:match("neo%-tree") and buf_name:match("filesystem") or path == "/" then
 				return ""
 			end
 
@@ -63,47 +78,40 @@ local left_modules = {
 		symbols = { added = " ", modified = "󰝤 ", removed = " " },
 		conditions = conditions.hide_in_width(),
 	},
+}
+
+local right_modules = {
 	{
 		-- Diagnostics
 		"diagnostics",
 		sources = { "nvim_diagnostic" },
 		symbols = { error = " ", warn = " ", info = " ", hint = " " },
 	},
-}
-
-local right_modules = {
 	{
 		-- Language Server Protocol
 		function()
-			local output = ""
-			local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
+			local output = " "
 
 			local clients = vim.lsp.get_clients()
 
-			for _, client in pairs(clients) do
-				local filetypes = client.config.filetypes
-				if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-					output = output .. ", " .. client.name
-				end
+			if #clients < 1 then
+				output = output .. "Inactive"
+			else
+				output = output .. "Active"
 			end
 
-			return string.sub(output, 3)
+			return output
 		end,
-	},
-	{
-		-- Progress
-		function()
-			local current_line = vim.fn.line(".")
-			local total_lines = vim.fn.line("$")
-			local icons = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" }
+		color = function()
+			local color = "#e06c75"
+			local clients = vim.lsp.get_clients()
 
-			local line_ratio = current_line / total_lines
+			if #clients > 0 then
+				color = "#98c379"
+			end
 
-			local index = math.ceil(line_ratio * #icons)
-
-			return icons[index]
+			return { bg = color, fg = "#121212" }
 		end,
-		padding = { left = 1, right = 0 },
 	},
 }
 

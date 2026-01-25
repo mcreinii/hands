@@ -24,8 +24,13 @@ M.defaults = {
 	pumheight = 10, -- Limit popup menu height
 	cmdheight = 0, -- Use minimal command line height (nvim 0.9+)
 	termguicolors = true, -- Enable true color support
-	winborder = "double", -- (rounded, double, single, solid, shadow or none)
+	winborder = "rounded", -- (rounded, double, single, solid, shadow or none)
 }
+
+function M.disable_netrw()
+	vim.g.loaded_netrw = 1
+	vim.g.loaded_netrwPlugin = 1
+end
 
 function M.relative_num()
 	vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {

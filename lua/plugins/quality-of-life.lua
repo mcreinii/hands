@@ -51,7 +51,6 @@ return {
 				},
 			})
 		end,
-		keys = {},
 	},
 
 	-- Whichkey
@@ -80,7 +79,6 @@ return {
 				-- Keymaps
 				{ "<leader>Q", icon = "" },
 				{ "<leader>q", icon = "" },
-				{ "<leader>h", icon = "" },
 				{ "<leader>w", icon = "" },
 			})
 		end,
