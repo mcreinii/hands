@@ -42,7 +42,6 @@ local left_modules = {
 
 			return icons[index]
 		end,
-		padding = { left = 1, right = 0 },
 	},
 	{
 		-- Filetype
