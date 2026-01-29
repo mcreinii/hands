@@ -18,4 +18,12 @@ return {
 		lazy = false,
 		priority = 1000,
 	},
+	{
+		"sainnhe/sonokai",
+		lazy = false,
+		priority = 1000,
+		init = function()
+			vim.g.sonokai_transparent_background = 2
+		end,
+	},
 }
