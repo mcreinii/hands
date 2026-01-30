@@ -1,5 +1,5 @@
 return {
-	dir = vim.fn.expand("~/.config/modern-nvim/lua/floating-terminal/"),
+	dir = vim.fn.expand("~/.config/nvim/lua/floating-terminal/"),
 	opts = {},
 	config = function(_, opts)
 		require("floating-terminal").setup(opts)
