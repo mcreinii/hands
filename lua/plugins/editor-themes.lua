@@ -26,4 +26,23 @@ return {
 			vim.g.sonokai_transparent_background = 2
 		end,
 	},
+	{
+		"nikolvs/vim-sunbather",
+		priority = 1000,
+	},
+	{
+		"L-Colombo/oldschool.nvim",
+		priority = 1000,
+		opts = {},
+	},
+	{
+		"thallada/farout.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
+		"projekt0n/caret.nvim",
+		priority = 1000,
+	},
 }

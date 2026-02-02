@@ -5,18 +5,18 @@ local conditions = {
 }
 
 local mode_colors = {
-	n = { fg = "#121212", bg = "#98c379" }, -- Normal Mode (Green)
-	i = { fg = "#121212", bg = "#61afef" }, -- Insert Mode (Blue)
-	ic = { fg = "#121212", bg = "#61afef" }, -- Insert Mode with completion (Blue)
-	v = { fg = "#121212", bg = "#c678dd" }, -- Visual Mode (Purple)
-	V = { fg = "#121212", bg = "#c678dd" }, -- Visual Mode (Line)
-	["\22"] = { fg = "#121212", bg = "#c678dd" }, -- Visual Mode (Block)
-	R = { fg = "#121212", bg = "#d19a66" }, -- Replace Mode (Orange)
-	c = { fg = "#121212", bg = "#e06c75" }, -- Command Mode (Red)
-	t = { fg = "#121212", bg = "#56b6c2" }, -- Terminal Mode (Cyan)
-	no = { fg = "#121212", bg = "#d19a66" }, -- Operator-pending Mode (Orange)
-	niI = { fg = "#121212", bg = "#98c379" }, -- Normal Insert-pending Mode (Green)
-	niR = { fg = "#121212", bg = "#d19a66" }, -- Normal Replace-pending Mode (Orange)
+	n = { fg = "#98c379" }, -- Normal Mode (Green)
+	i = { fg = "#61afef" }, -- Insert Mode (Blue)
+	ic = { fg = "#61afef" }, -- Insert Mode with completion (Blue)
+	v = { fg = "#c678dd" }, -- Visual Mode (Purple)
+	V = { fg = "#c678dd" }, -- Visual Mode (Line)
+	["\22"] = { fg = "#c678dd" }, -- Visual Mode (Block)
+	R = { fg = "#d19a66" }, -- Replace Mode (Orange)
+	c = { fg = "#e06c75" }, -- Command Mode (Red)
+	t = { fg = "#56b6c2" }, -- Terminal Mode (Cyan)
+	no = { fg = "#d19a66" }, -- Operator-pending Mode (Orange)
+	niI = { fg = "#98c379" }, -- Normal Insert-pending Mode (Green)
+	niR = { fg = "#d19a66" }, -- Normal Replace-pending Mode (Orange)
 }
 
 local left_modules = {
@@ -109,7 +109,7 @@ local right_modules = {
 				color = "#98c379"
 			end
 
-			return { bg = color, fg = "#121212" }
+			return { fg = color }
 		end,
 	},
 }
