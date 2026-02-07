@@ -9,6 +9,32 @@ return {
 		-- this is equivalent to setup({}) function
 	},
 
+	-- Autotag
+	-- For auto tag completion and rename using TS
+	{
+		"windwp/nvim-ts-autotag",
+		opts = {
+			opts = {
+				-- Defaults
+				enable_close = true, -- Auto close tags
+				enable_rename = true, -- Auto rename pairs of tags
+				enable_close_on_slash = false, -- Auto close on trailing </
+			},
+			-- Also override individual filetype configs, these take priority.
+			-- Empty by default, useful if one of the "opts" global settings
+			-- doesn't work well in a specific filetype
+			per_filetype = {
+				["html"] = {
+					enable_close = false,
+				},
+			},
+			aliases = {
+				["javascriptreact"] = "html",
+				["typescriptreact"] = "html",
+			},
+		},
+	},
+
 	-- Formatter
 	-- Auto formatting and fallback
 	{
@@ -16,6 +42,10 @@ return {
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
+				javascript = { "prettierd", "prettier" },
+				javascriptreact = { "prettierd", "prettier" },
+				typescript = { "prettierd", "prettier" },
+				typescriptreact = { "prettierd", "prettier" },
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()

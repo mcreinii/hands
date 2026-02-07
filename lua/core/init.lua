@@ -7,4 +7,4 @@ require("core.options").disable_netrw()
 -- Setup default keymappings
 require("core.keymaps").setup()
 
-require("core.colorscheme").setup("oldschool")
+require("core.colorscheme").setup("sunbather")
